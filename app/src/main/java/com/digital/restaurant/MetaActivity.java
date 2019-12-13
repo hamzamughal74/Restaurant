@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -74,9 +75,6 @@ public class MetaActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressDialog progressDialog;
     private String uid;
     private  String childDirectory="";
-    private  ArrayList<String>  group= new ArrayList<>();
-    ArrayList<String> arrList = new ArrayList<String>();
-    private List<String> mList = new ArrayList<String>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -96,39 +94,36 @@ public class MetaActivity extends AppCompatActivity implements View.OnClickListe
         //gs://production-digital-attraction.appspot.com
         storageRef = storage.getReferenceFromUrl("gs://production-digital-attraction.appspot.com/");
         progressDialog = new ProgressDialog(this);
-        Spinner categoriesSpinner = findViewById(R.id.categoriesSpinner);
+//        Spinner categoriesSpinner = findViewById(R.id.categoriesSpinner);
 
-//        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//
-//        FirebaseFirestore.getInstance().collection("restaurant").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                DocumentSnapshot documentSnapshot = task.getResult();
-//
-//
-//
-//
-//
-//
-//
-//
-//            }
-//
-//
-//        });
+        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseFirestore.getInstance().collection("restaurant").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot documentSnapshot = task.getResult();
+                List<String> List = (List<String>) documentSnapshot.get("Catgories");
 
 
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                        MetaActivity.this, android.R.layout.simple_spinner_item, List);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                final Spinner sItems = (Spinner) findViewById(R.id.categoriesSpinner);
+                sItems.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+//
+                sItems.setSelection(0);
+                sItems.setOnItemSelectedListener(MetaActivity.this);
 
-//        final String[] daysArray = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-//                this, android.R.layout.simple_spinner_item, mList);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//         final Spinner sItems = (Spinner) findViewById(R.id.categoriesSpinner);
-//        sItems.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
 
 
-        categoriesSpinner.setOnItemSelectedListener(this);
+            }
+
+
+        });
+
+
+
+
         descriptionEt = findViewById(R.id.descriptionEt);
         findViewById(R.id.uploadBtn).setOnClickListener(this);
     }
@@ -278,10 +273,13 @@ public class MetaActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
 
+
             selectedCategory = parent.getItemAtPosition(pos).toString();
+
           if (!selectedCategory.equals("Select")) {
               if (!catArray.contains(selectedCategory)) {
                   catArray.add(parent.getItemAtPosition(pos).toString());
+                  Toast.makeText(this, ""+catArray, Toast.LENGTH_SHORT).show();
               }
           }
 
