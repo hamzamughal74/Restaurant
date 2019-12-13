@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "631834724815",
+    "firebase_url": "https://production-digital-attraction.firebaseio.com",
+    "project_id": "production-digital-attraction",
+    "storage_bucket": "production-digital-attraction.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631834724815:android:c14db79ae5d189015aaaba",
+        "android_client_info": {
+          "package_name": "com.digital.restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631834724815-1093if8pjcdio9ucjcqrujtgrhofp7e1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNgO6ejbTpNCVUCUdu9ulS9H6A_NDBdlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631834724815-1093if8pjcdio9ucjcqrujtgrhofp7e1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

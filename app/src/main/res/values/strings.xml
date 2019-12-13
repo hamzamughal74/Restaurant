@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+    <string name="upload">Télécharger</string>
+    <string name="icon">icon</string>
+    <string name="description">La description</string>
+    <string name="category">Catégorie</string>
+    <string name="_continue">Continuez</string>
+    <string name="choose_category">Choose Category</string>
+    <string name="da_sharing">DA Sharing</string>
+    <string name="logout">se déconnecter</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
+    <string name="login">Sidentifier</string>
+    <string name="password">Mot de passe</string>
+    <string name="email">Email</string>
+    <string name="remember_me">souviens-toi de moi</string>
+
+    <string-array name="categories">
+        <item>Select</item>
+        <item>Food</item>
+        <item>Drinks</item>
+        <item>Bar B Q</item>
+        <item>Cultural</item>
+    </string-array>
+</resources>

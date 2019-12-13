@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoryScreen">
+    <Spinner
+        android:id="@+id/categoryop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:id="@+id/destext"
+        android:hint="Description"
+        android:layout_below="@+id/categoryop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        >
+    </EditText>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:id="@+id/btnnext"
+        android:layout_below="@+id/destext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/loginbutton_selector"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="italic|bold"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        >
+
+    </Button>
+
+</RelativeLayout>
